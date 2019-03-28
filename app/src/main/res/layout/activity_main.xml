@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    tools:context=".MainActivity">
+
+    <com.github.devit951.fillingbutton.FillingButton
+        android:id="@+id/fb_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FIRST BUTTON"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@color/colorAccent"
+        app:fillColor="@color/colorPrimaryDark"
+        app:fillDuration="500"/>
+
+    <com.github.devit951.fillingbutton.FillingButton
+        android:id="@+id/fb_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorYellow"
+        android:text="SECOND BUTTON"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        app:fillColor="@color/colorGreen"
+        app:fillDuration="1000"/>
+
+    <com.github.devit951.fillingbutton.FillingButton
+        android:id="@+id/fb_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGreen"
+        android:text="THIRD BUTTON"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        app:fillColor="@color/colorRed"
+        app:fillDuration="1500"/>
+
+</LinearLayout>
