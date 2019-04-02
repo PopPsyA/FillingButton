@@ -5,6 +5,8 @@
 [![API 16+](https://img.shields.io/badge/API-16%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![GitHub license](https://img.shields.io/github/license/dcendents/android-maven-gradle-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) 
 
+![Build with love](https://forthebadge.com/images/badges/built-with-love.svg)
+
 Replace typical onClickListener with that library! **It's the new way to handle onClickListener on buttons.**
 
 # Sample
