@@ -32,7 +32,7 @@
         app:fillColor="@color/colorGreen"
         app:fillDuration="1000"/>
 
-    <com.github.devit951.fillingbutton.FillingButton
+    <com.github.devit951.fillingbutton.InternetSensableFillingButton
         android:id="@+id/fb_third"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
