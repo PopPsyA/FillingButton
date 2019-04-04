@@ -1,8 +1,11 @@
 # FillingButton
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-FillingButton-green.svg?style=flat )]( https://android-arsenal.com/details/1/7598 )
 [![jitpack badge](https://jitpack.io/v/Devit951/FillingButton.svg)](https://jitpack.io/#Devit951/FillingButton)
 [![badge android platform](https://camo.githubusercontent.com/4e7c3559fec3db6e04cd6d800d00fe6515f75260/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f706c6174666f726d2d616e64726f69642d627269676874677265656e2e737667)](https://developer.android.com/)
 [![API 16+](https://img.shields.io/badge/API-16%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![GitHub license](https://img.shields.io/github/license/dcendents/android-maven-gradle-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) 
+
+![Build with love](https://forthebadge.com/images/badges/built-with-love.svg)
 
 Replace typical onClickListener with that library! **It's the new way to handle onClickListener on buttons.**
 
