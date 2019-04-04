@@ -7,24 +7,24 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.widget.Button
 
-class InternetSensableButton (button: Button) {
+class InternetSensableButton (button: Button, onConnectionChanged: (Boolean) -> Unit) {
 
-    private val internetConnectionReceiver = InternetConnectionReceiver(button)
+    private val internetConnectionReceiver = InternetConnectionReceiver(button, onConnectionChanged)
     private val context = button.context
 
-    init {
-        context.registerReceiver(internetConnectionReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
-    }
+    fun registerConnectionReceiver() = context.registerReceiver(internetConnectionReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))!!
 
-
-    fun removeConnectionReceiver(){
+    fun unregisterReceiver(){
         context.unregisterReceiver(internetConnectionReceiver)
     }
 
     private class InternetConnectionReceiver(private val button: Button,
+                                             private val onConnectionChanged: (Boolean) -> Unit,
                                              private val disabledAlpha: Float = 0.5f): BroadcastReceiver(){
         override fun onReceive(context: Context?, intent: Intent?) {
-            button.isEnabled = checkInternet(context).also {
+            val connected = checkInternet(context)
+            onConnectionChanged.invoke(connected)
+            button.isEnabled = connected.also {
                 when(it){
                     true -> button.alpha = 1f
                     false -> button.alpha = disabledAlpha
