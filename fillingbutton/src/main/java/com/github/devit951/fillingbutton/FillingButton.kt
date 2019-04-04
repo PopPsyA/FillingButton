@@ -10,7 +10,7 @@ import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
 import android.view.MotionEvent
 
-class FillingButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0): AppCompatButton(context, attrs, defStyle){
+open class FillingButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0): AppCompatButton(context, attrs, defStyle){
 
     private val fillingColor: Int
     private val fillingAlpha: Int
@@ -22,7 +22,7 @@ class FillingButton @JvmOverloads constructor(context: Context, attrs: Attribute
     private val fillingValueAnimator = ValueAnimator()
     private var drawProgress = false
 
-    var onButtonFilled: (() -> Unit)? = null
+    open var onButtonFilled: (() -> Unit)? = null
 
     init {
         context.obtainStyledAttributes(attrs , R.styleable.FillingButton , defStyle , 0).apply {
@@ -43,7 +43,7 @@ class FillingButton @JvmOverloads constructor(context: Context, attrs: Attribute
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        if (drawProgress){
+        if (drawProgress && onButtonFilled != null){
             canvas?.drawRect(fillingRect , fillingPaint)
         }
     }
