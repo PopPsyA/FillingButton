@@ -7,7 +7,7 @@
 
 ![Build with love](https://forthebadge.com/images/badges/built-with-love.svg)
 
-Replace typical onClickListener with that library! **It's the new way to handle onClickListener on buttons.**
+Replace typical onLongClickListener with that library! **It's the new way to handle onLongClickListener on buttons.**
 
 # Sample
 ![20190328_105032](https://user-images.githubusercontent.com/21290800/55136168-8492f300-514f-11e9-82dd-2edc218a2e90.gif)
