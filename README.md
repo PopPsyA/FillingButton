@@ -16,7 +16,7 @@ Replace typical onLongClickListener with that library! **It's the new way to han
 ![20190427_124552](https://user-images.githubusercontent.com/21290800/56846643-10cd3d00-68eb-11e9-883c-f95484056790.gif)
 
 
-## Usage simple FillingButton
+## Usage a simple FillingButton
 ```
  <com.github.devit951.fillingbutton.FillingButton
         android:id="@+id/fb_first"
@@ -28,7 +28,7 @@ Replace typical onLongClickListener with that library! **It's the new way to han
         app:fillDuration="500"/>
 ```
 
-## Usage simple InternetSensableFillingButton
+## Usage a simple InternetSensableFillingButton
 
 ```
  <com.github.devit951.fillingbutton.InternetSensableFillingButton
