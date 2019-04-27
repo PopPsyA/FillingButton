@@ -12,9 +12,26 @@ Replace typical onLongClickListener with that library! **It's the new way to han
 # Sample
 ![20190328_105032](https://user-images.githubusercontent.com/21290800/55136168-8492f300-514f-11e9-82dd-2edc218a2e90.gif)
 
-## Usage
+# Added new type of button **InternetSensableFillingButton**
+![20190427_124552](https://user-images.githubusercontent.com/21290800/56846643-10cd3d00-68eb-11e9-883c-f95484056790.gif)
+
+
+## Usage a simple FillingButton
 ```
  <com.github.devit951.fillingbutton.FillingButton
+        android:id="@+id/fb_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BUTTON"
+        android:background="@color/colorAccent"
+        app:fillColor="@color/colorPrimaryDark"
+        app:fillDuration="500"/>
+```
+
+## Usage a simple InternetSensableFillingButton
+
+```
+ <com.github.devit951.fillingbutton.InternetSensableFillingButton
         android:id="@+id/fb_first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
