@@ -10,8 +10,7 @@ import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
 import android.view.MotionEvent
 import com.github.devit951.fillingbutton.direction.FillingDirection
-import com.github.devit951.fillingbutton.direction.FromLeftToRightFillingDirection
-import com.github.devit951.fillingbutton.direction.FromRightToLeftFillingDirection
+import com.github.devit951.fillingbutton.direction.LeftToRightFillingDirection
 
 open class FillingButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0): AppCompatButton(context, attrs, defStyle){
 
@@ -27,7 +26,7 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
     private val fillingValueAnimator = ValueAnimator()
     private var drawProgress = false
 
-    var fillingDirection: FillingDirection = FromLeftToRightFillingDirection()
+    var fillingDirection: FillingDirection = LeftToRightFillingDirection()
     open var onButtonFilled: (() -> Unit)? = null
 
     init {

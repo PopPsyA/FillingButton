@@ -2,12 +2,10 @@ package com.github.devit951.fillingbutton.example
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import com.github.devit951.fillingbutton.FillingButton
-import com.github.devit951.fillingbutton.InternetSensableButton
-import com.github.devit951.fillingbutton.InternetSensableFillingButton
+import com.github.devit951.fillingbutton.direction.LeftToRightFillingDirection
+import com.github.devit951.fillingbutton.direction.RightToLeftFillingDirection
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,11 +14,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fb_first.onButtonFilled = { fb_first.showFillButtonToast() }
+        fb_first.fillingDirection = RightToLeftFillingDirection()
+        fb_third.fillingDirection = RightToLeftFillingDirection()
+
+        fb_first.onButtonFilled = {
+            fb_first.showFillButtonToast()
+        }
 
         fb_second.onButtonFilled = { fb_second.showFillButtonToast() }
 
-        fb_third.onButtonFilled = { fb_third.showFillButtonToast() }
+        fb_third.onButtonFilled = {
+            fb_third.showFillButtonToast()
+        }
     }
 
     private fun FillingButton.showFillButtonToast(){
