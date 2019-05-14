@@ -2,7 +2,7 @@ package com.github.devit951.fillingbutton.direction
 
 import com.github.devit951.fillingbutton.FillingButton
 
-class FromRightToLeftFillingDirection: FillingDirection {
+class RightToLeftFillingDirection: FillingDirection {
     override fun drawDirection(fillingButton: FillingButton, animatedIntValue: Int){
         fillingButton.fillingRect.left = fillingButton.viewWidth - animatedIntValue
     }
