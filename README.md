@@ -57,6 +57,6 @@ allprojects {
 }
   
 dependencies {  
-  implementation 'com.github.Devit951:FillingButton:v1.0'
+  implementation 'com.github.Devit951:FillingButton:1.2'
 }
 ```
