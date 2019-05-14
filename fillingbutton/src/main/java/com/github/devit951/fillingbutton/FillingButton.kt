@@ -25,10 +25,10 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
     open var onButtonFilled: (() -> Unit)? = null
 
     init {
-        context.obtainStyledAttributes(attrs , R.styleable.FillingButton , defStyle , 0).apply {
-            fillingColor = getColor(R.styleable.FillingButton_fillColor , Color.GRAY)
-            fillingAlpha = getInt(R.styleable.FillingButton_fillAlpha , 128)
-            fillingDuration = getInt(R.styleable.FillingButton_fillDuration , 1500).toLong()
+        context.obtainStyledAttributes(attrs, R.styleable.FillingButton, defStyle, 0).apply {
+            fillingColor = getColor(R.styleable.FillingButton_fillColor, Color.GRAY)
+            fillingAlpha = getInt(R.styleable.FillingButton_fillAlpha, 128)
+            fillingDuration = getInt(R.styleable.FillingButton_fillDuration, 1500).toLong()
         }.recycle()
         fillingPaint.color = fillingColor
         fillingPaint.alpha = fillingAlpha
@@ -44,7 +44,7 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         if (drawProgress && onButtonFilled != null){
-            canvas?.drawRect(fillingRect , fillingPaint)
+            canvas?.drawRect(fillingRect, fillingPaint)
         }
     }
 
