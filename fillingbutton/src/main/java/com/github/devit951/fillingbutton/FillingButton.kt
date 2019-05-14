@@ -9,19 +9,25 @@ import android.graphics.Rect
 import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
 import android.view.MotionEvent
+import com.github.devit951.fillingbutton.direction.FillingDirection
+import com.github.devit951.fillingbutton.direction.FromLeftToRightFillingDirection
+import com.github.devit951.fillingbutton.direction.FromRightToLeftFillingDirection
 
 open class FillingButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0): AppCompatButton(context, attrs, defStyle){
+
+    internal var viewWidth: Int = 0
+    internal var viewHeight: Int = 0
+    internal val fillingRect = Rect()
 
     private val fillingColor: Int
     private val fillingAlpha: Int
     private val fillingDuration: Long
 
-    private val fillingRect = Rect()
-    private val fillingPaint = Paint().apply { isAntiAlias = true }
-    private var viewWidth: Int = 0
+    private val fillingPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val fillingValueAnimator = ValueAnimator()
     private var drawProgress = false
 
+    var fillingDirection: FillingDirection = FromLeftToRightFillingDirection()
     open var onButtonFilled: (() -> Unit)? = null
 
     init {
@@ -35,6 +41,7 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
         fillingValueAnimator.duration = fillingDuration
         post {
             viewWidth = width
+            viewHeight = height
             fillingRect.bottom = height
             fillingRect.right = viewWidth
             fillingValueAnimator.setIntValues(0, viewWidth)
@@ -69,7 +76,7 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
         fillingValueAnimator.apply {
             addUpdateListener {
                 val intValue = it.animatedValue as Int
-                rect.right = intValue
+                fillingDirection.drawDirection(this@FillingButton, intValue)
                 invalidate()
                 if (intValue == viewWidth){
                     onButtonFilled?.invoke()
@@ -81,7 +88,7 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
     private fun stopFillingAnimation(rect: Rect){
         fillingValueAnimator.cancel()
         fillingValueAnimator.removeAllUpdateListeners()
-        rect.right = 0
+        fillingDirection.resetDirection(this)
         invalidate()
     }
 }
