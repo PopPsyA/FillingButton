@@ -15,7 +15,7 @@ Replace typical onLongClickListener with that library! **It's the new way to han
 # Added new type of button **InternetSensableFillingButton**
 ![20190427_124552](https://user-images.githubusercontent.com/21290800/56846643-10cd3d00-68eb-11e9-883c-f95484056790.gif)
 
-# Added directions of filling, here is first and third button have RightToLeftDirection:
+# Added directions of filling, here is first and the third button has RightToLeftDirection:
 ![20190516_105414](https://user-images.githubusercontent.com/21290800/57829847-b7f61380-77c9-11e9-8d5c-3b8f9e67d9f6.gif)
 
 
