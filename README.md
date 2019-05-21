@@ -18,6 +18,9 @@ Replace typical onLongClickListener with that library! **It's the new way to han
 # Added directions of filling, here is first and the third button has RightToLeftDirection:
 ![20190516_105414](https://user-images.githubusercontent.com/21290800/57829847-b7f61380-77c9-11e9-8d5c-3b8f9e67d9f6.gif)
 
+# First FillingButton has TopToBottomFillingDirection and second FilligButton has BottomToTopFillingDirection
+![20190521_105157](https://user-images.githubusercontent.com/21290800/58071581-9c6a7e80-7bb6-11e9-8a6e-516d015cd232.gif)
+
 
 ## Usage a simple FillingButton
 ```
@@ -49,6 +52,8 @@ You can change these directions in runtime.
 ```
 fillingButton.direction = RightToLeftFillingDirection();
 fillingButton.direction = LeftToRightFillingDirection();
+fillingButton.direction = TopToBottomFillingDirection();
+fillingButton.direction = BottomToTopFillingDirection();
 ```
 
 ## List of xml attributes: 
