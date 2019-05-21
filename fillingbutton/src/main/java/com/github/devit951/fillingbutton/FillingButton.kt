@@ -14,6 +14,7 @@ import com.github.devit951.fillingbutton.direction.LeftToRightFillingDirection
 
 open class FillingButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0): AppCompatButton(context, attrs, defStyle){
 
+
     internal var viewWidth: Int = 0
     internal var viewHeight: Int = 0
     internal val fillingRect = Rect()
@@ -23,11 +24,11 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
     private val fillingDuration: Long
 
     private val fillingPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val fillingValueAnimator = ValueAnimator()
     private var drawProgress = false
 
-    var fillingDirection: FillingDirection = LeftToRightFillingDirection()
     open var onButtonFilled: (() -> Unit)? = null
+    var fillingDirection: FillingDirection = LeftToRightFillingDirection()
+    val fillingWidthValueAnimator = ValueAnimator()
 
     init {
         context.obtainStyledAttributes(attrs, R.styleable.FillingButton, defStyle, 0).apply {
@@ -37,13 +38,13 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
         }.recycle()
         fillingPaint.color = fillingColor
         fillingPaint.alpha = fillingAlpha
-        fillingValueAnimator.duration = fillingDuration
+        fillingWidthValueAnimator.duration = fillingDuration
         post {
             viewWidth = width
             viewHeight = height
-            fillingRect.bottom = height
+            fillingRect.bottom = viewHeight
             fillingRect.right = viewWidth
-            fillingValueAnimator.setIntValues(0, viewWidth)
+            fillingWidthValueAnimator.setIntValues(0, viewWidth)
         }
     }
 
@@ -58,35 +59,35 @@ open class FillingButton @JvmOverloads constructor(context: Context, attrs: Attr
         when(event?.action){
             MotionEvent.ACTION_DOWN -> {
                 drawProgress = true
-                startFillingAnimation(fillingRect)
+                startFillingAnimation()
                 return true
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 drawProgress = false
-                stopFillingAnimation(fillingRect)
+                stopFillingAnimation()
                 return true
             }
         }
         return super.onTouchEvent(event)
     }
 
-    private fun startFillingAnimation(rect: Rect){
-        stopFillingAnimation(rect)
-        fillingValueAnimator.apply {
+    private fun startFillingAnimation(){
+        stopFillingAnimation()
+        fillingWidthValueAnimator.apply {
             addUpdateListener {
                 val intValue = it.animatedValue as Int
                 fillingDirection.drawDirection(this@FillingButton, intValue)
                 invalidate()
-                if (intValue == viewWidth){
+                if (intValue == fillingDirection.trigger(this@FillingButton)){
                     onButtonFilled?.invoke()
                 }
             }
         }.start()
     }
 
-    private fun stopFillingAnimation(rect: Rect){
-        fillingValueAnimator.cancel()
-        fillingValueAnimator.removeAllUpdateListeners()
+    private fun stopFillingAnimation(){
+        fillingWidthValueAnimator.cancel()
+        fillingWidthValueAnimator.removeAllUpdateListeners()
         fillingDirection.resetDirection(this)
         invalidate()
     }
