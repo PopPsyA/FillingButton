@@ -10,4 +10,6 @@ class LeftToRightFillingDirection: FillingDirection {
     override fun resetDirection(fillingButton: FillingButton) {
         fillingButton.fillingRect.right = 0
     }
+
+    override fun trigger(fillingButton: FillingButton) = fillingButton.viewWidth
 }
